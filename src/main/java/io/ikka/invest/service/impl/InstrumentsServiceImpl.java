@@ -22,6 +22,7 @@ public class InstrumentsServiceImpl implements InstrumentsService {
 
     @Override
     public InstrumentEntity save(InstrumentEntity entity) {
+        System.out.println(entity);
         log.info("{}", entity);
         return repository.save(entity);
     }

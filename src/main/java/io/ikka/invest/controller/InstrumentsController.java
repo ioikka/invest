@@ -40,9 +40,12 @@ public class InstrumentsController {
         ).forEach(instrumentsList -> {
             try {
                 instrumentsList.instruments.forEach(
-                        instrument ->
-                                instrumentsService.save(
-                                        modelMapper.map(instrument, InstrumentEntity.class)));
+                        instrument -> {
+                            log.info("saving instrument {}", instrument);
+                            System.out.println(instrument);
+                            instrumentsService.save(
+                                    modelMapper.map(instrument, InstrumentEntity.class));
+                        });
             } catch (Exception e) {
                 log.error("", e);
             }
