@@ -41,10 +41,12 @@ public class InstrumentsController {
             try {
                 instrumentsList.instruments.forEach(
                         instrument -> {
-                            log.info("saving instrument {}", instrument);
-                            System.out.println(instrument);
-                            instrumentsService.save(
-                                    modelMapper.map(instrument, InstrumentEntity.class));
+                            try {
+                                instrumentsService.save(
+                                        modelMapper.map(instrument, InstrumentEntity.class));
+                            } catch (Exception e) {
+                                log.error("", e);
+                            }
                         });
             } catch (Exception e) {
                 log.error("", e);
@@ -69,12 +71,12 @@ public class InstrumentsController {
                 .map(it -> new Instrument(
                         it.getFigi(),
                         it.getTicker(),
-                        it.isin,
-                        it.minPriceIncrement,
-                        it.lot,
-                        it.currency,
-                        it.name,
-                        it.type
+                        it.getIsin(),
+                        it.getMinPriceIncrement(),
+                        it.getLot(),
+                        it.getCurrency(),
+                        it.getName(),
+                        it.getType()
                 ))
                 .collect(Collectors.toList());
         log.info("Finished searching by ticker in repository.");
@@ -101,12 +103,12 @@ public class InstrumentsController {
                 .map(it -> new Instrument(
                         it.getFigi(),
                         it.getTicker(),
-                        it.isin,
-                        it.minPriceIncrement,
-                        it.lot,
-                        it.currency,
-                        it.name,
-                        it.type
+                        it.getIsin(),
+                        it.getMinPriceIncrement(),
+                        it.getLot(),
+                        it.getCurrency(),
+                        it.getName(),
+                        it.getType()
                 ))
                 .collect(Collectors.toList());
         log.info("Finished searching by ticker in repository.");

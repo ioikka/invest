@@ -20,6 +20,7 @@ import java.math.BigDecimal;
         }
 )
 @Getter
+@Setter
 @ToString(callSuper = true)
 @Entity
 public class InstrumentEntity extends BaseEntity {
@@ -45,36 +46,36 @@ public class InstrumentEntity extends BaseEntity {
      * Международный идентификационный код ценной бумаги.
      */
     @Nullable
-    public String isin;
+    private String isin;
 
     /**
      * Минимальный шаг цены.
      */
     @Nullable
-    public BigDecimal minPriceIncrement;
+    private BigDecimal minPriceIncrement;
 
     /**
      * Размер лота.
      */
-    public int lot;
+    private int lot;
 
     /**
      * Валюта цены инструмента.
      */
     @Nullable
-    public Currency currency;
+    private Currency currency;
 
     /**
      * Название компании-эмитента
      */
     @Column(nullable = false)
     @NotNull
-    public String name;
+    private String name;
 
     /**
      * Тип инструмента.
      */
     @Column(nullable = false)
     @NotNull
-    public InstrumentType type;
+    private InstrumentType type;
 }
