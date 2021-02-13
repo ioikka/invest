@@ -1,9 +1,6 @@
 package io.ikka.invest.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.tinkoff.invest.openapi.models.Currency;
@@ -23,6 +20,7 @@ import java.math.BigDecimal;
         }
 )
 @Getter
+@ToString(callSuper = true)
 @Entity
 public class InstrumentEntity extends BaseEntity {
     @Id

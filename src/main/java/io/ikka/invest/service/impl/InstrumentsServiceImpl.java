@@ -4,10 +4,12 @@ import io.ikka.invest.model.InstrumentEntity;
 import io.ikka.invest.repositories.InstrumentsRepository;
 import io.ikka.invest.service.InstrumentsService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class InstrumentsServiceImpl implements InstrumentsService {
@@ -20,6 +22,7 @@ public class InstrumentsServiceImpl implements InstrumentsService {
 
     @Override
     public InstrumentEntity save(InstrumentEntity entity) {
+        log.info("{}", entity);
         return repository.save(entity);
     }
 
