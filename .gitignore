@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/test/resources/ingored/
+
+### App ###
+/src/main/resources/application-hidden.properties
